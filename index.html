@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Divyansh Shaw — Mumbai-based Cinematographer, Creative Director, Video Editor & YouTube Strategist. Crafting stories through light, motion and emotion." />
+  <meta name="keywords"
+    content="Divyansh Shaw, Cinematographer, Mumbai, Creative Director, Video Editor, YouTube Strategist, Whistling Woods, Short Films, Music Videos, Commercials" />
+  <meta name="author" content="Divyansh Shaw" />
+  <meta property="og:title" content="Divyansh Shaw — Cinematographer & Creative Director" />
+  <meta property="og:description" content="Crafting stories through light, motion and emotion." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Divyansh Shaw — Cinematographer & Creative Director</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- LOADING SCREEN -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">DS</div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <div class="loader-text">LOADING</div>
+    </div>
+    <div class="grain-overlay"></div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">
+      <a href="#hero" class="logo-link">DS</a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#cameras" class="nav-link">Cameras</a></li>
+      <li><a href="#projects" class="nav-link">Work</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn-nav">Let's Talk</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#cameras" class="mobile-link">Cameras</a></li>
+      <li><a href="#projects" class="mobile-link">Work</a></li>
+      <li><a href="#services" class="mobile-link">Services</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="hero-image-wrap" id="heroParallax">
+        <img src="divyansh.png" alt="Divyansh Shaw — Cinematographer" class="hero-portrait" id="heroPortrait" />
+        <div class="hero-image-overlay"></div>
+      </div>
+    </div>
+    <div class="grain-overlay"></div>
+    <div class="hero-content" id="heroContent">
+      <div class="hero-eyebrow reveal-text">Mumbai, India</div>
+      <h1 class="hero-title">
+        <span class="hero-name reveal-word">DIVYANSH</span>
+        <span class="hero-name reveal-word delay-1">SHAW</span>
+      </h1>
+      <div class="hero-roles" id="heroRoles">
+        <span class="role-text">Cinematographer</span>
+      </div>
+      <p class="hero-tagline reveal-fade">Crafting stories through light, motion and emotion.</p>
+      <div class="hero-actions reveal-fade delay-2">
+        <a href="#projects" class="btn-primary">View Portfolio</a>
+        <a href="#contact" class="btn-secondary">Contact Me</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+    <!-- Cinematic frame lines -->
+    <div class="frame-top"></div>
+    <div class="frame-bottom"></div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about section-pad">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-left">
+          <div class="section-label reveal-fade">About</div>
+          <h2 class="section-title reveal-fade">The Eye<br />Behind the<br />Lens</h2>
+        </div>
+        <div class="about-right">
+          <div class="about-text-block reveal-fade">
+            <p class="about-lead">
+              Divyansh Shaw is a Mumbai-based cinematographer who transforms raw moments into cinematic poetry.
+            </p>
+            <p class="about-body">
+              Trained at <span class="accent-text">Whistling Woods International</span>, one of Asia's most prestigious
+              film schools, Divyansh developed a deep mastery of cinematography, camera language, lighting, and
+              cinematic storytelling.
+            </p>
+            <p class="about-body">
+              Specializing in short films, music videos, podcasts, commercials and digital productions, he brings an
+              obsessive attention to detail and a director's eye to every frame. He believes every frame should
+              contribute to the story — nothing is accidental, everything is intentional.
+            </p>
+          </div>
+          <div class="about-strengths reveal-fade">
+            <div class="strength-label">Core Strengths</div>
+            <div class="strengths-grid">
+              <div class="strength-item"><span class="strength-num">01</span>Camera Operation</div>
+              <div class="strength-item"><span class="strength-num">02</span>Visual Storytelling</div>
+              <div class="strength-item"><span class="strength-num">03</span>Camera Angles</div>
+              <div class="strength-item"><span class="strength-num">04</span>Cut Points</div>
+              <div class="strength-item"><span class="strength-num">05</span>Creative Direction</div>
+              <div class="strength-item"><span class="strength-num">06</span>Cinematic Composition</div>
+              <div class="strength-item"><span class="strength-num">07</span>Lighting</div>
+              <div class="strength-item"><span class="strength-num">08</span>Editing Awareness</div>
+            </div>
+          </div>
+          <div class="about-stat-row reveal-fade">
+            <div class="stat-item">
+              <div class="stat-num">7+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Camera Brands</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-num">WWI</div>
+              <div class="stat-label">Film School</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="skills section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Expertise</div>
+        <h2 class="section-title">What I Do</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal-card" data-delay="0">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.899L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+            </svg>
+          </div>
+          <div class="skill-num">01</div>
+          <h3 class="skill-name">Cinematography</h3>
+          <p class="skill-desc">Visual storytelling through light, composition and camera movement.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="50">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <div class="skill-num">02</div>
+          <h3 class="skill-name">Creative Direction</h3>
+          <p class="skill-desc">Shaping visual identity and guiding the overall look and feel.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="100">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            </svg>
+          </div>
+          <div class="skill-num">03</div>
+          <h3 class="skill-name">Camera Operation</h3>
+          <p class="skill-desc">Expert handling of professional cinema cameras across multiple formats.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="150">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+              <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="skill-num">04</div>
+          <h3 class="skill-name">Video Editing</h3>
+          <p class="skill-desc">Precise editorial craftsmanship that elevates raw footage into narrative.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="200">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="skill-num">05</div>
+          <h3 class="skill-name">Color Grading</h3>
+          <p class="skill-desc">Sculpting emotion through color, tone and cinematic looks.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="250">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <circle cx="12" cy="13" r="3" />
+            </svg>
+          </div>
+          <div class="skill-num">06</div>
+          <h3 class="skill-name">Photography</h3>
+          <p class="skill-desc">Still imagery with a cinematographer's eye for light and composition.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="300">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <div class="skill-num">07</div>
+          <h3 class="skill-name">Drone Cinematography</h3>
+          <p class="skill-desc">Aerial perspectives that add cinematic scale and dimension.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="350">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <div class="skill-num">08</div>
+          <h3 class="skill-name">Lighting</h3>
+          <p class="skill-desc">Crafting mood and atmosphere through intentional light design.</p>
+        </div>
+        <div class="skill-card reveal-card" data-delay="400">
+          <div class="skill-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+            </svg>
+          </div>
+          <div class="skill-num">09</div>
+          <h3 class="skill-name">YouTube Strategy</h3>
+          <p class="skill-desc">Data-driven content strategy that grows channels and builds audiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAMERAS SECTION -->
+  <section id="cameras" class="cameras section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Equipment</div>
+        <h2 class="section-title">Cameras</h2>
+        <p class="section-subtitle">Professional cinema cameras I've operated on set</p>
+      </div>
+      <div class="cameras-grid">
+        <div class="camera-card reveal-card" data-delay="0">
+          <div class="camera-logo-wrap">
+            <svg class="camera-logo" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Outfit, sans-serif"
+                font-size="28" font-weight="800" fill="currentColor">SONY</text>
+            </svg>
+          </div>
+          <div class="camera-name">Sony Cinema</div>
+          <div class="camera-desc">FX3 · FX6 · Venice</div>
+        </div>
+        <div class="camera-card reveal-card" data-delay="100">
+          <div class="camera-logo-wrap">
+            <svg class="camera-logo" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Outfit, sans-serif"
+                font-size="28" font-weight="800" fill="currentColor">ARRI</text>
+            </svg>
+          </div>
+          <div class="camera-name">ARRI</div>
+          <div class="camera-desc">Alexa · Amira · Mini LF</div>
+        </div>
+        <div class="camera-card reveal-card" data-delay="200">
+          <div class="camera-logo-wrap">
+            <svg class="camera-logo" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700"
+                fill="currentColor">Canon</text>
+            </svg>
+          </div>
+          <div class="camera-name">Canon Cinema</div>
+          <div class="camera-desc">EOS C300 · EOS R5</div>
+        </div>
+        <div class="camera-card reveal-card" data-delay="300">
+          <div class="camera-logo-wrap">
+            <svg class="camera-logo" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Outfit, sans-serif"
+                font-size="28" font-weight="700" fill="currentColor">Nikon</text>
+            </svg>
+          </div>
+          <div class="camera-name">Nikon</div>
+          <div class="camera-desc">Z6 II · Z7 II</div>
+        </div>
+        <div class="camera-card reveal-card" data-delay="400">
+          <div class="camera-logo-wrap">
+            <svg class="camera-logo" viewBox="0 0 160 60" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="22" dominant-baseline="middle" text-anchor="middle" font-family="Outfit, sans-serif"
+                font-size="15" font-weight="900" letter-spacing="0.1em" fill="currentColor">RED DIGITAL</text>
+              <text x="50%" y="42" dominant-baseline="middle" text-anchor="middle" font-family="Outfit, sans-serif"
+                font-size="15" font-weight="900" letter-spacing="0.1em" fill="currentColor">CINEMA</text>
+            </svg>
+          </div>
+          <div class="camera-name">RED Digital Cinema</div>
+          <div class="camera-desc">V-RAPTOR · KOMODO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTWARE SECTION -->
+  <section id="software" class="software section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Tools</div>
+        <h2 class="section-title">Software</h2>
+      </div>
+      <div class="software-grid">
+        <div class="software-card reveal-card" data-delay="0">
+          <div class="software-icon-wrap">
+            <!-- Adobe Premiere Pro Icon -->
+            <svg viewBox="0 0 50 50" class="sw-icon premiere">
+              <rect width="50" height="50" rx="8" fill="#9999FF" />
+              <text x="9" y="33" font-family="serif" font-size="22" font-weight="900" fill="#0A0A0A">Pr</text>
+            </svg>
+          </div>
+          <div class="software-name">Premiere Pro</div>
+          <div class="software-maker">Adobe</div>
+        </div>
+        <div class="software-card reveal-card" data-delay="100">
+          <div class="software-icon-wrap">
+            <!-- DaVinci Resolve Icon -->
+            <svg viewBox="0 0 50 50" class="sw-icon davinci">
+              <rect width="50" height="50" rx="8" fill="#232323" />
+              <circle cx="25" cy="25" r="14" fill="none" stroke="#FF6A00" stroke-width="3" />
+              <circle cx="25" cy="25" r="5" fill="#FF6A00" />
+            </svg>
+          </div>
+          <div class="software-name">DaVinci Resolve</div>
+          <div class="software-maker">Blackmagic Design</div>
+        </div>
+        <div class="software-card reveal-card" data-delay="200">
+          <div class="software-icon-wrap">
+            <!-- Avid Icon -->
+            <svg viewBox="0 0 50 50" class="sw-icon avid">
+              <rect width="50" height="50" rx="8" fill="#1A1A2E" />
+              <text x="7" y="33" font-family="Outfit, sans-serif" font-size="16" font-weight="700"
+                fill="#7EB2FF">Avid</text>
+            </svg>
+          </div>
+          <div class="software-name">Media Composer</div>
+          <div class="software-maker">Avid</div>
+        </div>
+        <div class="software-card reveal-card" data-delay="300">
+          <div class="software-icon-wrap">
+            <!-- Photoshop Icon -->
+            <svg viewBox="0 0 50 50" class="sw-icon photoshop">
+              <rect width="50" height="50" rx="8" fill="#31A8FF" />
+              <text x="8" y="33" font-family="serif" font-size="22" font-weight="900" fill="#001833">Ps</text>
+            </svg>
+          </div>
+          <div class="software-name">Photoshop</div>
+          <div class="software-maker">Adobe</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS SECTION -->
+  <section id="projects" class="projects section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">Featured Work</h2>
+        <p class="section-subtitle">Selected projects across short films, commercials and digital productions</p>
+      </div>
+      <div class="projects-grid">
+
+        <!-- PROJECT 01 -->
+        <div class="project-card reveal-card" data-delay="0">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail">
+              <iframe src="https://www.youtube.com/embed/atimfvfT1P0" title="Leher — Short Film" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">01</span>
+              <span class="project-role">Cinematographer</span>
+            </div>
+            <h3 class="project-title">Leher</h3>
+            <p class="project-desc">A cinematic short film where I handled the cinematography with a strong focus on
+              lighting, composition, framing and emotional storytelling.</p>
+          </div>
+        </div>
+
+        <!-- PROJECT 02 -->
+        <div class="project-card reveal-card" data-delay="100">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail">
+              <iframe src="https://www.youtube.com/embed/XHjn7cZKnqI" title="In Her Shoes" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">02</span>
+              <span class="project-role">Cinematographer</span>
+            </div>
+            <h3 class="project-title">In Her Shoes</h3>
+            <p class="project-desc">A visually driven narrative focusing on cinematic compositions, expressive lighting
+              and storytelling through camera movement.</p>
+          </div>
+        </div>
+
+        <!-- PROJECT 03 -->
+        <div class="project-card reveal-card" data-delay="150">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail">
+              <iframe src="https://www.youtube.com/embed/INpGgFfONGM" title="Organ Donation" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">03</span>
+              <span class="project-role">Cinematographer</span>
+            </div>
+            <h3 class="project-title">Organ Donation</h3>
+            <p class="project-desc">A social awareness film where the cinematography was designed to create emotional
+              impact through cinematic visuals.</p>
+          </div>
+        </div>
+
+        <!-- PROJECT 04 -->
+        <div class="project-card reveal-card" data-delay="0">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail">
+              <iframe src="https://www.youtube.com/embed/bhwbWmgv9uQ" title="I GOT HUNTED" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">04</span>
+              <span class="project-role">Creative Director · Cinematographer</span>
+            </div>
+            <div class="project-client">Don Vision Production</div>
+            <h3 class="project-title">I GOT HUNTED</h3>
+            <p class="project-desc">Led the visual direction and cinematography with dynamic framing, camera movement
+              and storytelling.</p>
+          </div>
+        </div>
+
+        <!-- PROJECT 05 -->
+        <div class="project-card reveal-card" data-delay="100">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail">
+              <iframe src="https://www.youtube.com/embed/iNZjfaXBPQA" title="I GOT TRAPPED" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">05</span>
+              <span class="project-role">Creative Director · Cinematographer</span>
+            </div>
+            <div class="project-client">Don Vision Production</div>
+            <h3 class="project-title">I GOT TRAPPED</h3>
+            <p class="project-desc">Designed the visual language and executed cinematic camera work to enhance the
+              pacing and atmosphere.</p>
+          </div>
+        </div>
+
+        <!-- PROJECT 06 -->
+        <div class="project-card reveal-card" data-delay="200">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail">
+              <iframe src="https://www.youtube.com/embed/ABj5kpRBp24" title="I CREATED MINECRAFT MYSTERY"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">06</span>
+              <span class="project-role">Creative Director · Cinematographer</span>
+            </div>
+            <div class="project-client">Don Vision Production</div>
+            <h3 class="project-title">I CREATED MINECRAFT MYSTERY</h3>
+            <p class="project-desc">A cinematic YouTube production combining visual storytelling, dynamic framing and
+              engaging camera techniques.</p>
+          </div>
+        </div>
+
+        <!-- PROJECT 07 — COMING SOON (EASY TO EDIT) -->
+        <div class="project-card project-coming-soon reveal-card" data-delay="0" id="project07">
+          <div class="project-video-wrap">
+            <div class="project-thumbnail coming-soon-thumb">
+              <div class="coming-soon-overlay">
+                <div class="cs-inner">
+                  <div class="cs-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4l3 3" />
+                    </svg>
+                  </div>
+                  <div class="cs-label">Coming Soon</div>
+                  <!-- Hidden iframe — swap to active when ready -->
+                  <!-- <iframe src="https://www.youtube.com/embed/BU18C8YDLX4" title="Coming Soon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-num">07</span>
+              <span class="project-role">To Be Announced</span>
+            </div>
+            <h3 class="project-title">Coming Soon</h3>
+            <p class="project-desc">Something new is in the works. Stay tuned for the next chapter.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM GALLERY -->
+  <section id="gallery" class="instagram section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Instagram</div>
+        <h2 class="section-title">Visual Diary</h2>
+        <p class="section-subtitle">Frames from the field — follow along on Instagram</p>
+      </div>
+      <div class="instagram-grid">
+        <div class="insta-card reveal-card" data-delay="0">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaKO2m_jF4g/"
+            data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="insta-card reveal-card" data-delay="100">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZ2C0ouuMp_/"
+            data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="insta-card reveal-card" data-delay="200">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZxhbr5jXH6/"
+            data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="insta-card reveal-card" data-delay="300">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaS7eyltdIS/"
+            data-instgrm-version="14"></blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" class="services section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Services</div>
+        <h2 class="section-title">What I Offer</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-card" data-delay="0">
+          <div class="service-num">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.899L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Cinematography</h3>
+          <p class="service-desc">Full-scale cinema camera operation for films, series and branded content.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="50">
+          <div class="service-num">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Creative Direction</h3>
+          <p class="service-desc">End-to-end visual strategy, mood boards, and on-set creative leadership.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="100">
+          <div class="service-num">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Video Editing</h3>
+          <p class="service-desc">Narrative-driven post-production with precision and cinematic rhythm.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="150">
+          <div class="service-num">04</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="service-title">YouTube Strategy</h3>
+          <p class="service-desc">Data-backed content planning, thumbnails, pacing, and audience growth.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="200">
+          <div class="service-num">05</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>
+          </div>
+          <h3 class="service-title">Commercials</h3>
+          <p class="service-desc">High-production brand films and advertising campaigns.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="250">
+          <div class="service-num">06</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+          </div>
+          <h3 class="service-title">Music Videos</h3>
+          <p class="service-desc">Expressive visual storytelling that amplifies sound and emotion.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="300">
+          <div class="service-num">07</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <circle cx="12" cy="13" r="3" />
+            </svg>
+          </div>
+          <h3 class="service-title">Photography</h3>
+          <p class="service-desc">Editorial and commercial photography with a film-inspired aesthetic.</p>
+          <div class="service-arrow">→</div>
+        </div>
+        <div class="service-card reveal-card" data-delay="350">
+          <div class="service-num">08</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </div>
+          <h3 class="service-title">Drone Shoots</h3>
+          <p class="service-desc">Licensed aerial cinematography for epic establishing shots.</p>
+          <div class="service-arrow">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left reveal-fade">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Let's Create<br />Something<br />Cinematic</h2>
+          <p class="contact-intro">Have a project in mind? Let's talk about how we can tell your story through stunning
+            visuals.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label">Location</div>
+                <div class="contact-value">Mumbai, India</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label">Email</div>
+                <a href="mailto:divyanshshaw22@gmail.com"
+                  class="contact-value contact-link">divyanshshaw22@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label">Phone</div>
+                <a href="tel:+919320396134" class="contact-value contact-link">+91 9320396134</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-link"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social-link"
+              aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.41 19.1C5.12 19.55 12 19.55 12 19.55s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97 29 29 0 00.46-5.25 29 29 0 00-.46-5.46z" />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right reveal-fade">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="hello@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="project-type" class="form-label">Project Type</label>
+              <select id="project-type" name="projectType" class="form-input form-select">
+                <option value="">Select a project type</option>
+                <option value="short-film">Short Film</option>
+                <option value="commercial">Commercial</option>
+                <option value="music-video">Music Video</option>
+                <option value="youtube">YouTube Production</option>
+                <option value="photography">Photography</option>
+                <option value="drone">Drone Shoot</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Tell me about your project</label>
+              <textarea id="message" name="message" class="form-input form-textarea" rows="5"
+                placeholder="Describe your vision..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-arrow">→</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+              Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DS</div>
+          <div class="footer-tagline">"Every frame tells a story."</div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#cameras">Cameras</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"
+            class="footer-social">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"
+            class="footer-social">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube" class="footer-social">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.41 19.1C5.12 19.55 12 19.55 12 19.55s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97 29 29 0 00.46-5.25 29 29 0 00-.46-5.46z" />
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Divyansh Shaw. All Rights Reserved.</p>
+        <p class="footer-made">Mumbai, India</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Instagram Embed Script -->
+  <script async defer src="//www.instagram.com/embed.js"></script>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
