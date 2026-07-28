@@ -98,7 +98,7 @@ function initHeroAnimations() {
   animateFollower();
 
   // Hover effects on interactive elements
-  const hoverTargets = selectAll('a, button, .skill-card, .camera-card, .service-card, .project-card, .software-card');
+  const hoverTargets = selectAll('a, button, .skill-card, .camera-card, .service-card, .project-card, .software-card, .youtube-embed');
   hoverTargets.forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.classList.add('hover');
