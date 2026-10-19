@@ -1271,45 +1271,101 @@ a {
 }
 
 /* ============================================
-   INSTAGRAM SECTION
+   VISUAL DIARY (STILLS & FRAMES)
    ============================================ */
-.instagram {
+.visual-diary {
   background: var(--dark2);
 }
 
-.instagram-grid {
+.diary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(328px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  align-items: start;
 }
 
-.insta-card {
-  border-radius: var(--radius);
+.diary-card {
+  position: relative;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s, border-color 0.4s;
-  height: 440px;
   border: 1px solid var(--border);
   background: var(--dark3);
-  position: relative;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
-.insta-card:hover {
+.diary-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--border-hover);
+  border-color: var(--accent);
 }
 
-.insta-card iframe,
-.insta-card .instagram-media {
-  width: 100% !important;
-  height: 580px !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  margin: 0 !important;
-  border: none !important;
-  border-radius: var(--radius) !important;
+.diary-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.diary-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease), filter 0.5s;
+  filter: contrast(1.04) brightness(0.96);
+}
+
+.diary-card:hover .diary-img-wrap img {
+  transform: scale(1.08);
+  filter: contrast(1.08) brightness(1.02);
+}
+
+.diary-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.diary-card:hover .diary-overlay {
+  opacity: 1;
+}
+
+.diary-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--accent);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.diary-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.diary-subtitle {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--white-dim);
+  line-height: 1.4;
 }
 
 /* ============================================
@@ -1844,6 +1900,11 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .diary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 3.5rem;
@@ -2147,6 +2208,31 @@ a {
 
   .software-maker {
     font-size: 0.68rem;
+  }
+
+  .diary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .diary-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+    padding: 0.8rem;
+  }
+
+  .diary-badge {
+    font-size: 0.52rem;
+    padding: 0.18rem 0.45rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .diary-title {
+    font-size: 0.82rem;
+  }
+
+  .diary-subtitle {
+    display: none;
   }
 
   .project-info {

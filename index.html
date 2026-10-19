@@ -52,6 +52,7 @@
       <li><a href="#about" class="nav-link">About</a></li>
       <li><a href="#skills" class="nav-link">Skills</a></li>
       <li><a href="#cameras" class="nav-link">Cameras</a></li>
+      <li><a href="#gallery" class="nav-link">Visual Diary</a></li>
       <li><a href="#projects" class="nav-link">Work</a></li>
       <li><a href="#services" class="nav-link">Services</a></li>
       <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -70,6 +71,7 @@
       <li><a href="#about" class="mobile-link">About</a></li>
       <li><a href="#skills" class="mobile-link">Skills</a></li>
       <li><a href="#cameras" class="mobile-link">Cameras</a></li>
+      <li><a href="#gallery" class="mobile-link">Visual Diary</a></li>
       <li><a href="#projects" class="mobile-link">Work</a></li>
       <li><a href="#services" class="mobile-link">Services</a></li>
       <li><a href="#contact" class="mobile-link">Contact</a></li>
@@ -425,7 +427,60 @@
     </div>
   </section>
 
-  <!-- FEATURED PROJECTS SECTION -->
+    <!-- VISUAL DIARY (STILLS & FRAMES) -->
+  <section id="gallery" class="visual-diary section-pad">
+    <div class="container">
+      <div class="section-header reveal-fade">
+        <div class="section-label">Stills & Frames</div>
+        <h2 class="section-title">Visual Diary</h2>
+        <p class="section-subtitle">Moments from behind the lens, cinematic stills and on-set frames</p>
+      </div>
+      <div class="diary-grid">
+        <div class="diary-card reveal-card" data-delay="0">
+          <div class="diary-img-wrap">
+            <img src="filming_bts.jpg" alt="Cinematography Behind The Scenes" loading="lazy" />
+            <div class="diary-overlay">
+              <span class="diary-badge">Behind The Scenes</span>
+              <h3 class="diary-title">On Location</h3>
+              <p class="diary-subtitle">Rigging & framing with cinema primes</p>
+            </div>
+          </div>
+        </div>
+        <div class="diary-card reveal-card" data-delay="100">
+          <div class="diary-img-wrap">
+            <img src="leher_still.jpg" alt="Leher Short Film Still" loading="lazy" />
+            <div class="diary-overlay">
+              <span class="diary-badge">Film Still</span>
+              <h3 class="diary-title">Leher</h3>
+              <p class="diary-subtitle">Atmospheric lighting & shadow contrast</p>
+            </div>
+          </div>
+        </div>
+        <div class="diary-card reveal-card" data-delay="200">
+          <div class="diary-img-wrap">
+            <img src="inhershoes_still.jpg" alt="In Her Shoes Film Still" loading="lazy" />
+            <div class="diary-overlay">
+              <span class="diary-badge">Film Still</span>
+              <h3 class="diary-title">In Her Shoes</h3>
+              <p class="diary-subtitle">Character emotion & intimate depth</p>
+            </div>
+          </div>
+        </div>
+        <div class="diary-card reveal-card" data-delay="300">
+          <div class="diary-img-wrap">
+            <img src="sunnlezara_still.jpg" alt="Sunn Le Zara Music Video Still" loading="lazy" />
+            <div class="diary-overlay">
+              <span class="diary-badge">Visual Frame</span>
+              <h3 class="diary-title">Sunn Le Zara</h3>
+              <p class="diary-subtitle">Warm palette & cinematic composition</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FEATURED PROJECTS SECTION -->
   <section id="projects" class="projects section-pad">
     <div class="container">
       <div class="section-header reveal-fade">
@@ -673,35 +728,6 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM GALLERY -->
-  <section id="gallery" class="instagram section-pad">
-    <div class="container">
-      <div class="section-header reveal-fade">
-        <div class="section-label">Instagram</div>
-        <h2 class="section-title">Visual Diary</h2>
-        <p class="section-subtitle">Frames from the field — follow along on Instagram</p>
-      </div>
-      <div class="instagram-grid">
-        <div class="insta-card reveal-card" data-delay="0">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DaKO2m_jF4g/"
-            data-instgrm-version="14"></blockquote>
-        </div>
-        <div class="insta-card reveal-card" data-delay="100">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DZ2C0ouuMp_/"
-            data-instgrm-version="14"></blockquote>
-        </div>
-        <div class="insta-card reveal-card" data-delay="200">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DZxhbr5jXH6/"
-            data-instgrm-version="14"></blockquote>
-        </div>
-        <div class="insta-card reveal-card" data-delay="300">
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaS7eyltdIS/"
-            data-instgrm-version="14"></blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES SECTION -->
   <section id="services" class="services section-pad">
     <div class="container">
@@ -884,7 +910,11 @@
           </div>
         </div>
         <div class="contact-right reveal-fade">
-          <form class="contact-form" id="contactForm" novalidate>
+          <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none;" aria-hidden="true">
+              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <div class="form-group">
               <label for="name" class="form-label">Your Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required />
@@ -940,6 +970,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#cameras">Cameras</a></li>
+            <li><a href="#gallery">Visual Diary</a></li>
             <li><a href="#projects">Work</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -977,9 +1008,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Instagram Embed Script -->
-  <script async defer src="//www.instagram.com/embed.js"></script>
 
   <script src="main.js"></script>
 </body>
