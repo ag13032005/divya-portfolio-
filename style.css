@@ -51,9 +51,14 @@ body {
   cursor: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px), (pointer: coarse) {
   body {
-    cursor: auto;
+    cursor: auto !important;
+  }
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
   }
 }
 
@@ -340,23 +345,30 @@ a {
 .hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
+  width: 44px;
+  height: 44px;
+  z-index: 1001;
+  position: relative;
 }
 
 .hamburger span {
   display: block;
   width: 24px;
-  height: 1px;
+  height: 2px;
   background: var(--white);
-  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 1px;
+  transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -364,7 +376,7 @@ a {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ---- MOBILE MENU ---- */
@@ -1006,12 +1018,12 @@ a {
 .camera-logo {
   height: 35px;
   width: auto;
-  filter: brightness(0) invert(1);
-  transition: filter 0.3s;
+  max-width: 130px;
+  transition: transform 0.3s var(--ease);
 }
 
 .camera-card:hover .camera-logo {
-  filter: none;
+  transform: scale(1.06);
 }
 
 .camera-name {
@@ -1807,7 +1819,7 @@ a {
   }
 
   .nav {
-    padding: 1.5rem 2rem;
+    padding: 1.2rem 2rem;
   }
 
   .nav.scrolled {
@@ -1820,11 +1832,12 @@ a {
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3.5rem;
   }
 
   .about-image-wrap {
-    max-width: 400px;
+    max-width: 380px;
+    margin: 1.5rem auto 0;
   }
 
   .software-grid {
@@ -1833,17 +1846,26 @@ a {
 
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3.5rem;
   }
 }
 
 @media (max-width: 900px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
 
   .cameras-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .cameras-grid .camera-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 280px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .nav-links,
@@ -1858,34 +1880,70 @@ a {
 
 @media (max-width: 768px) {
   .section-pad {
-    padding: 6rem 0;
+    padding: 5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 3.5rem;
   }
 
   .section-title {
-    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-size: clamp(2rem, 7.5vw, 3.2rem);
   }
 
   .hero-image-wrap {
     width: 100%;
+    opacity: 0.5;
+  }
+
+  .hero-image-overlay {
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.85) 60%,
+        var(--black) 100%);
   }
 
   .hero-content {
     padding: 0 1.5rem;
-    padding-top: 8rem;
+    padding-top: 7.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+    letter-spacing: -0.02em;
+    word-break: break-word;
   }
 
   .hero-actions {
     flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    gap: 1rem;
   }
 
   .btn-primary,
   .btn-secondary {
     width: 100%;
     justify-content: center;
+    text-align: center;
+  }
+
+  .about-image-accent {
+    right: 0;
+    bottom: -10px;
+  }
+
+  .about-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    text-align: center;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
   .services-grid {
@@ -1896,48 +1954,6 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .about-stat-row {
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .footer-top {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .footer-nav ul {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .contact-form {
-    padding: 2rem;
-  }
-
-  .hero-title {
-    font-size: clamp(3.5rem, 15vw, 8rem);
-  }
-}
-
-@media (max-width: 500px) {
-  .cameras-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .software-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-
   .strengths-grid {
     grid-template-columns: 1fr;
   }
@@ -1945,14 +1961,249 @@ a {
   .strength-item {
     border-right: none !important;
     border-bottom: 1px solid var(--border) !important;
+    padding: 2rem 1.5rem;
   }
 
   .strength-item:last-child {
     border-bottom: none !important;
   }
 
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer-nav ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .contact-form {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
   .container {
     padding: 0 1.2rem;
+  }
+
+  .section-pad {
+    padding: 3.8rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 8vw, 2.3rem);
+    line-height: 1.1;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .hero-content {
+    padding: 0 1.2rem;
+    padding-top: 6.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.3rem, 11vw, 3.4rem);
+    margin-bottom: 1.5rem;
+    line-height: 0.95;
+    word-break: break-word;
+  }
+
+  .hero-roles {
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    min-height: 1.8em;
+  }
+
+  .hero-tagline {
+    font-size: 0.88rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .about-image-wrap {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .about-lead {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .about-body {
+    font-size: 0.88rem;
+  }
+
+  .about-stat-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  .stat-num {
+    font-size: clamp(1.6rem, 7.5vw, 2.2rem);
+  }
+
+  .stat-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
+  .skill-card {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .cameras-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .cameras-grid .camera-card:nth-child(5) {
+    grid-column: 1 / -1;
+    max-width: 200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .camera-card {
+    padding: 1.6rem 0.75rem;
+  }
+
+  .camera-logo-wrap {
+    height: 42px;
+    margin-bottom: 0.8rem;
+  }
+
+  .camera-logo {
+    height: 26px;
+    max-width: 95px;
+  }
+
+  .camera-name {
+    font-size: 0.78rem;
+  }
+
+  .camera-desc {
+    font-size: 0.65rem;
+  }
+
+  .software-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .software-card {
+    padding: 1.8rem 0.85rem;
+  }
+
+  .software-icon-wrap {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 0.8rem;
+  }
+
+  .software-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .software-name {
+    font-size: 0.88rem;
+  }
+
+  .software-maker {
+    font-size: 0.68rem;
+  }
+
+  .project-info {
+    padding: 1.4rem 1.1rem;
+  }
+
+  .project-title {
+    font-size: 1.15rem;
+  }
+
+  .project-desc {
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .play-btn-overlay {
+    width: 52px;
+    height: 52px;
+  }
+
+  .play-btn-overlay svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 3px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .contact-intro {
+    font-size: 0.92rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-details {
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-form {
+    padding: 1.6rem 1.1rem;
+    border-radius: var(--radius);
+  }
+
+  .form-input {
+    font-size: 16px;
+    padding: 0.85rem 1rem;
+  }
+
+  .mobile-link {
+    font-size: 1.85rem;
+    padding: 0.65rem 0;
   }
 }
 
