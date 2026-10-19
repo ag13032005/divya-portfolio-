@@ -1293,6 +1293,8 @@ a {
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
 
 .diary-card:hover {
@@ -1304,7 +1306,7 @@ a {
 .diary-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--black);
 }

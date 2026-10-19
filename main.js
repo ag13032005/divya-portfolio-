@@ -243,7 +243,7 @@ function initHeroAnimations() {
 })();
 
 /* =============================================
-   CONTACT FORM (NETLIFY FORMS READY)
+   CONTACT FORM (NETLIFY POSTGRESQL & FORMS INTEGRATION)
    ============================================= */
 (function initContactForm() {
   const form = select('#contactForm');
@@ -251,17 +251,19 @@ function initHeroAnimations() {
   const successMsg = select('#formSuccess');
   if (!form || !submitBtn || !successMsg) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     // Basic validation
     const nameInput = form.querySelector('#name');
     const emailInput = form.querySelector('#email');
     const messageInput = form.querySelector('#message');
+    const projectTypeInput = form.querySelector('#project-type');
 
     const name = nameInput ? nameInput.value.trim() : '';
     const email = emailInput ? emailInput.value.trim() : '';
     const message = messageInput ? messageInput.value.trim() : '';
+    const projectType = projectTypeInput ? projectTypeInput.value : '';
 
     if (!name || !email || !message) {
       form.style.animation = 'shake 0.4s ease';
@@ -274,27 +276,37 @@ function initHeroAnimations() {
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
 
-    const formData = new FormData(form);
-    const encodedBody = new URLSearchParams(formData).toString();
-
-    // Submit via Netlify Forms API
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encodedBody
-    })
-      .then(response => {
-        submitBtn.style.display = 'none';
-        successMsg.classList.add('show');
-        form.reset();
-      })
-      .catch(error => {
-        console.warn('Form submission note:', error);
-        // Fallback for local testing or network interruption
-        submitBtn.style.display = 'none';
-        successMsg.classList.add('show');
-        form.reset();
+    // 1. Send to Netlify Function -> PostgreSQL Database
+    try {
+      const dbResp = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, projectType, message })
       });
+      if (dbResp.ok) {
+        console.log('Successfully saved to Netlify PostgreSQL Database!');
+      }
+    } catch (err) {
+      console.warn('PostgreSQL API note:', err);
+    }
+
+    // 2. Also send to Netlify Forms for built-in dashboard alerts
+    try {
+      const formData = new FormData(form);
+      const encodedBody = new URLSearchParams(formData).toString();
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodedBody
+      });
+    } catch (err) {
+      console.warn('Netlify form submission note:', err);
+    }
+
+    // Show success confirmation
+    submitBtn.style.display = 'none';
+    successMsg.classList.add('show');
+    form.reset();
   });
 })();
 
