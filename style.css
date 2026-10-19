@@ -1309,32 +1309,143 @@ a {
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--black);
+  user-select: none;
 }
 
-.diary-img-wrap img {
+.diary-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.diary-slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s var(--ease), filter 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s var(--ease), transform 0.6s var(--ease), filter 0.5s;
   filter: contrast(1.04) brightness(0.96);
+  pointer-events: none;
 }
 
-.diary-card:hover .diary-img-wrap img {
-  transform: scale(1.08);
+.diary-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.diary-card:hover .diary-slide.active {
+  transform: scale(1.06);
   filter: contrast(1.08) brightness(1.02);
+}
+
+/* Multi-photo Counter Badge */
+.diary-photo-count {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  padding: 0.28rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 4;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+}
+
+/* In-Card Nav Arrows */
+.diary-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease), background 0.25s, transform 0.25s;
+}
+
+.diary-card:hover .diary-nav-btn {
+  opacity: 1;
+}
+
+.diary-prev {
+  left: 0.65rem;
+}
+
+.diary-next {
+  right: 0.65rem;
+}
+
+.diary-nav-btn:hover {
+  background: var(--accent);
+  color: var(--black);
+  border-color: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Pagination Dots */
+.diary-dots {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+.diary-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transition: all 0.25s var(--ease);
+  cursor: pointer;
+}
+
+.diary-dot.active {
+  background: var(--accent);
+  width: 14px;
+  border-radius: 3px;
 }
 
 .diary-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
   opacity: 0;
   transition: opacity 0.4s var(--ease);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.5rem;
+  padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .diary-card:hover .diary-overlay {
@@ -1368,6 +1479,280 @@ a {
   font-weight: 300;
   color: var(--white-dim);
   line-height: 1.4;
+}
+
+.diary-tap-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.4rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.3s var(--ease);
+}
+
+.diary-card:hover .diary-tap-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   CINEMATIC LIGHTBOX MODAL
+   ============================================ */
+.diary-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+  padding: 1rem;
+}
+
+.diary-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.lightbox-container {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  transform: scale(0.96);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diary-lightbox.active .lightbox-container {
+  transform: scale(1);
+}
+
+.lightbox-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.75rem;
+}
+
+.lightbox-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--accent);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.lightbox-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+}
+
+.lightbox-counter {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--white-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -2.8rem;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.lightbox-close:hover {
+  background: var(--accent);
+  color: var(--black);
+  transform: scale(1.08);
+}
+
+.lightbox-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 250px;
+  max-height: 72vh;
+  margin: auto;
+}
+
+.lightbox-media-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 72vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  z-index: 10;
+}
+
+.lightbox-nav:hover {
+  background: var(--accent);
+  color: var(--black);
+  border-color: var(--accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev {
+  left: 0.5rem;
+}
+
+.lightbox-next {
+  right: 0.5rem;
+}
+
+.lightbox-thumbnails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.lightbox-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.lightbox-thumb {
+  width: 46px;
+  height: 46px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  flex-shrink: 0;
+  background: #000;
+}
+
+.lightbox-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lightbox-thumb.active {
+  border-color: var(--accent);
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.lightbox-thumb:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .diary-nav-btn {
+    opacity: 0.85;
+    width: 28px;
+    height: 28px;
+  }
+  .lightbox-container {
+    max-height: 90vh;
+  }
+  .lightbox-content {
+    max-height: 60vh;
+  }
+  .lightbox-media-wrap,
+  .lightbox-img {
+    max-height: 60vh;
+  }
+  .lightbox-nav {
+    width: 36px;
+    height: 36px;
+  }
+  .lightbox-close {
+    top: -2.4rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  .lightbox-thumb {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 /* ============================================

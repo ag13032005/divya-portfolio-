@@ -484,5 +484,220 @@ function initHeroAnimations() {
 })();
 
 
+/* =============================================
+   VISUAL DIARY CAROUSEL & CINEMATIC LIGHTBOX
+   ============================================= */
+(function initVisualDiaryAndLightbox() {
+  const diaryCards = document.querySelectorAll('.diary-card');
+  const lightbox = document.getElementById('diary-lightbox');
+  if (!lightbox) return;
+
+  const lbBackdrop = lightbox.querySelector('.lightbox-backdrop');
+  const lbClose = document.getElementById('lightbox-close');
+  const lbBadge = document.getElementById('lightbox-badge');
+  const lbTitle = document.getElementById('lightbox-title');
+  const lbCounter = document.getElementById('lightbox-counter');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbPrev = document.getElementById('lightbox-prev');
+  const lbNext = document.getElementById('lightbox-next');
+  const lbThumbnails = document.getElementById('lightbox-thumbnails');
+
+  let currentGallery = [];
+  let currentGalleryIndex = 0;
+
+  // 1. Initialize in-card carousel sliders
+  diaryCards.forEach(card => {
+    const slidesWrap = card.querySelector('.diary-slides');
+    const slides = card.querySelectorAll('.diary-slide');
+    const dots = card.querySelectorAll('.diary-dot');
+    const indicator = card.querySelector('.slide-indicator');
+    const prevBtn = card.querySelector('.diary-prev');
+    const nextBtn = card.querySelector('.diary-next');
+    const total = slides.length;
+
+    let activeIdx = 0;
+
+    function goToSlide(idx) {
+      if (total <= 1) return;
+      activeIdx = (idx + total) % total;
+      slidesWrap.setAttribute('data-active', activeIdx);
+
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === activeIdx);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === activeIdx);
+      });
+      if (indicator) {
+        indicator.textContent = `${activeIdx + 1}/${total}`;
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToSlide(activeIdx - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToSlide(activeIdx + 1);
+      });
+    }
+
+    dots.forEach((dot, dIdx) => {
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToSlide(dIdx);
+      });
+    });
+
+    // Touch swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    card.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    card.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 45 && total > 1) {
+        if (diff > 0) goToSlide(activeIdx + 1);
+        else goToSlide(activeIdx - 1);
+      }
+    }, { passive: true });
+
+    // Open lightbox on card click (NO redirect to Instagram!)
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(card, activeIdx);
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(card, activeIdx);
+      }
+    });
+  });
+
+  // 2. Lightbox logic
+  function openLightbox(card, startIndex = 0) {
+    const slides = Array.from(card.querySelectorAll('.diary-slide'));
+    const title = card.getAttribute('data-title') || 'Cinematic Still';
+    const badge = card.getAttribute('data-badge') || 'Visual Diary';
+
+    currentGallery = slides.map(img => ({
+      src: img.getAttribute('src'),
+      alt: img.getAttribute('alt') || title
+    }));
+    currentGalleryIndex = startIndex;
+
+    if (lbTitle) lbTitle.textContent = title;
+    if (lbBadge) lbBadge.textContent = badge;
+
+    // Render thumbnails
+    if (lbThumbnails) {
+      lbThumbnails.innerHTML = '';
+      if (currentGallery.length > 1) {
+        currentGallery.forEach((item, idx) => {
+          const thumb = document.createElement('div');
+          thumb.className = `lightbox-thumb ${idx === currentGalleryIndex ? 'active' : ''}`;
+          thumb.innerHTML = `<img src="${item.src}" alt="Thumb ${idx + 1}" />`;
+          thumb.addEventListener('click', () => setLightboxIndex(idx));
+          lbThumbnails.appendChild(thumb);
+        });
+        lbThumbnails.style.display = 'flex';
+      } else {
+        lbThumbnails.style.display = 'none';
+      }
+    }
+
+    // Toggle navigation arrows if only 1 photo
+    if (lbPrev && lbNext) {
+      const showNav = currentGallery.length > 1 ? 'flex' : 'none';
+      lbPrev.style.display = showNav;
+      lbNext.style.display = showNav;
+    }
+
+    setLightboxIndex(currentGalleryIndex);
+
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function setLightboxIndex(idx) {
+    if (!currentGallery.length) return;
+    currentGalleryIndex = (idx + currentGallery.length) % currentGallery.length;
+    const item = currentGallery[currentGalleryIndex];
+
+    if (lbImg) {
+      lbImg.style.opacity = '0.3';
+      lbImg.src = item.src;
+      lbImg.alt = item.alt;
+      lbImg.onload = () => { lbImg.style.opacity = '1'; };
+    }
+
+    if (lbCounter) {
+      lbCounter.textContent = `${currentGalleryIndex + 1} / ${currentGallery.length}`;
+    }
+
+    if (lbThumbnails) {
+      const thumbs = lbThumbnails.querySelectorAll('.lightbox-thumb');
+      thumbs.forEach((t, i) => {
+        t.classList.toggle('active', i === currentGalleryIndex);
+      });
+      // Scroll active thumbnail into view
+      const activeThumb = thumbs[currentGalleryIndex];
+      if (activeThumb) {
+        activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lbImg) lbImg.src = '';
+  }
+
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (lbBackdrop) lbBackdrop.addEventListener('click', closeLightbox);
+
+  if (lbPrev) {
+    lbPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setLightboxIndex(currentGalleryIndex - 1);
+    });
+  }
+
+  if (lbNext) {
+    lbNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setLightboxIndex(currentGalleryIndex + 1);
+    });
+  }
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      setLightboxIndex(currentGalleryIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      setLightboxIndex(currentGalleryIndex + 1);
+    }
+  });
+})();
+
 console.log('%cDIVYANSH SHAW — Portfolio', 'color:#D4AF37;font-size:20px;font-weight:800;letter-spacing:2px;');
 console.log('%cCinematographer · Creative Director · Mumbai', 'color:rgba(255,255,255,0.6);font-size:12px;');
