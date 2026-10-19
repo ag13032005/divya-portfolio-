@@ -978,27 +978,11 @@ a {
   height: 100%;
 }
 
-.camera-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transition: transform 0.4s var(--ease);
-}
-
 .camera-card:hover {
   border-color: var(--accent);
   background: var(--dark3);
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
-}
-
-.camera-card:hover::after {
-  transform: scaleX(1);
 }
 
 .camera-logo-wrap {
@@ -1085,6 +1069,7 @@ a {
   width: 55px;
   height: 55px;
   border-radius: 10px;
+  object-fit: contain;
   transition: transform 0.3s var(--ease);
 }
 
